@@ -1,20 +1,36 @@
 # Ignore Gradle project-specific cache directory
 .gradle
-
-# Ignore Gradle build output directory
+gradle/
 build
 
-
-.fleet/
-
-.idea/
+*.log
 
 app/youtube.properties/
-
 app/src/main/resources/client_secret.json
-
 app/src/main/resources/spotify_client_secret.json
-
 app/src/main/resources/youtube.properties
 
-gradle/
+
+# compiled output
+build/
+out/
+generated/
+target/
+/dist
+/tmp
+/out-tsc
+
+
+# IDEs and editors
+.fleet/
+.idea/
+.settings/
+*.iml
+.project
+.classpath
+
+
+# System Files
+.DS_Store
+
+**/**/.out
