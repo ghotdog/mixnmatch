@@ -37,14 +37,14 @@ public class Spotify {
 			GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 			
 			SpotifyApi spotifyApi = new SpotifyApi.Builder()
-										.setClientId(clientSecrets.getDetails().getClientId())
-										.setClientSecret(clientSecrets.getDetails().getClientSecret())
-										.setRedirectUri(redirectUri)
-										.build();
+				.setClientId(clientSecrets.getDetails().getClientId())
+				.setClientSecret(clientSecrets.getDetails().getClientSecret())
+				.setRedirectUri(redirectUri)
+				.build();
 			
 			ClientCredentialsRequest clientCredentialsRequest = spotifyApi
-																.clientCredentials()
-    															.build();
+				.clientCredentials()
+				.build();
 			
 			ClientCredentials clientCredentials = clientCredentialsRequest.execute();
 
@@ -52,16 +52,16 @@ public class Spotify {
 			spotifyApi.setAccessToken(clientCredentials.getAccessToken());
 
 			GetListOfUsersPlaylistsRequest getListOfUsersPlaylistsRequest = spotifyApi
-																			.getListOfUsersPlaylists(clientSecrets
-																			.getDetails()
-																			.get("user_id").toString())
-																			.build();
+				.getListOfUsersPlaylists(clientSecrets
+				.getDetails()
+				.get("user_id").toString())
+				.build();
 			
 			final Paging<PlaylistSimplified> playlistSimplifiedPaging = getListOfUsersPlaylistsRequest.execute();
 			
 			Arrays.stream(playlistSimplifiedPaging.getItems())
-													.map(PlaylistSimplified::getName)
-													.forEach(System.out::println);
+				.map(PlaylistSimplified::getName)
+				.forEach(System.out::println);
 			
 			
 		} catch (IOException | SpotifyWebApiException | ParseException e) {
