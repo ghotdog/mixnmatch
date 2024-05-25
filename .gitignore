@@ -9,7 +9,7 @@ app/youtube.properties/
 app/src/main/resources/client_secret.json
 app/src/main/resources/spotify_client_secret.json
 app/src/main/resources/youtube.properties
-
+youtube.properties
 
 # compiled output
 build/
